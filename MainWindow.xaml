@@ -55,7 +55,7 @@
 
                 </StackPanel>
             </GroupBox>
-            <GroupBox x:Name="GroupBox2"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="550" Margin="20,20,10,10" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0">
+            <GroupBox x:Name="GroupBox2"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="550" Margin="20,20,10,10" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Visibility="Hidden">
                 <StackPanel HorizontalAlignment="Center" Height="550" VerticalAlignment="Top" Width="550" Margin="0,0">
                     <Grid x:Name="Grid2" Height="30">
                         <Label x:Name="label7" Content="Pet ID:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0"/>
@@ -91,10 +91,28 @@
                     </Grid>
                 </StackPanel>
             </GroupBox>
-            <GroupBox x:Name="GroupBox3"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="620" Margin="10,10,9.666,0" Width="425" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Grid.ColumnSpan="2" Visibility="Hidden">
-                <StackPanel>
-                    <Grid>
-                        <Label x:Name="meow" Content="hello" HorizontalAlignment="Left" Margin="10,0" VerticalAlignment="Center"/>
+            <GroupBox x:Name="GroupBox3"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="550" Margin="23,18,21.667,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0">
+                <StackPanel HorizontalAlignment="Center" Height="550" VerticalAlignment="Top" Width="550" Margin="0,0">
+                    <Grid x:Name="Grid4" Height="25" Width="520">
+                        <Button x:Name="RoomNew" Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="25"/>
+                        <Button x:Name="RoomExisting" Content="Existing" HorizontalAlignment="Right" VerticalAlignment="Top" Width="260" Height="25"/>
+                    </Grid>
+                    <Grid x:Name="Grid5" Height="163" Width="520" Margin="15,0">
+                        <GroupBox x:Name="groupBox00" Header="Room Type" Height="100" VerticalAlignment="Center" Width="325" HorizontalAlignment="Left" Foreground="#FF010101" BorderBrush="#FF0A0B0C" Margin="0,30,0,33">
+                            <StackPanel>
+                                <RadioButton x:Name="radioButton_Single" Content="Single" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top"/>
+                                <RadioButton x:Name="radioButton_Group" Content="Group" HorizontalAlignment="Left" Margin="35, 10,0,0" VerticalAlignment="Top"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <Button x:Name="button_CheckAvailability" Content="Check Availability" HorizontalAlignment="Left" Margin="330,40,0,0" VerticalAlignment="Top" Width="180" Height="90"/>
+                    </Grid>
+                    <Grid x:Name="Grid6" Height="360" Width="520" Margin="15,0">
+                        <GroupBox x:Name="groupBoxAssignment" Header="Assignment" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" BorderBrush="Black" Foreground="#FF040404" Height="340" Width="510">
+                            <Grid>
+                                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Width="478" Height="24"/>
+                                <Button x:Name="buttonComplete" Content="Complete Registration" Height="30" Margin="8,277,12,9.667"/>
+                            </Grid>
+                        </GroupBox>
                     </Grid>
                 </StackPanel>
             </GroupBox>
