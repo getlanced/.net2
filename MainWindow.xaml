@@ -1,11 +1,11 @@
-﻿<Window x:Class="DotNet2.MainWindow"
+﻿<Window x:Class="PMS.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DotNet2"
+        xmlns:local="clr-namespace:PMS"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Title="Pet Day Care" Height="650" Width="600" Loaded="Window_Loaded">
+        Title="Pet Day Care" Height="696" Width="600" Loaded="Window_Loaded" Closed="Window_Closed">
     <StackPanel>
         <Grid Height="30">
             <Button x:Name="button_customer" Content="Customer Registration" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="30" Click="button_customer_Click"/>
@@ -117,5 +117,7 @@
                 </StackPanel>
             </GroupBox>
         </Grid>
+        <Button x:Name="btn_MainLogOut" Content="Log Out" Click="Btn_MainLogOut_Click" Height="30"/>
+        <Button x:Name="btn_MainManageUsers" Content="Manage Users" Height="25" Click="Btn_MainManageUsers_Click"/>
     </StackPanel>
 </Window>

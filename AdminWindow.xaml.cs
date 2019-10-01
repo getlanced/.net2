@@ -12,16 +12,43 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DotNet2
+namespace PMS
 {
     /// <summary>
     /// Interaction logic for AdminWindow.xaml
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public AdminWindow()
+        MainWindow parentWindow;
+        public AdminWindow(MainWindow parent)
         {
+            parentWindow = parent;
             InitializeComponent();
+        }
+
+        private void Btn_AdminExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            parentWindow.Show();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            parentWindow.Show();
+        }
+
+        private void Btn_Admin_Existing_Click(object sender, RoutedEventArgs e)
+        {
+            btn_Admin_New.IsEnabled = true;
+            btn_Admin_Existing.IsEnabled = false;
+            grp_EmpSearch.IsEnabled = true;
+        }
+
+        private void Btn_Admin_New_Click(object sender, RoutedEventArgs e)
+        {
+            btn_Admin_New.IsEnabled = false;
+            btn_Admin_Existing.IsEnabled = true;
+            grp_EmpSearch.IsEnabled = false;
         }
     }
 }
