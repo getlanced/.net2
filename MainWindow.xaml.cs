@@ -38,28 +38,18 @@ namespace PMS
         {
             GroupBox1.Visibility = Visibility.Visible;
             GroupBox2.Visibility = Visibility.Hidden;
-            GroupBox3.Visibility = Visibility.Hidden;
         }
 
         private void button_pet_Click(object sender, RoutedEventArgs e)
         {
             GroupBox1.Visibility = Visibility.Hidden;
             GroupBox2.Visibility = Visibility.Visible;
-            GroupBox3.Visibility = Visibility.Hidden;
-        }
-
-        private void button_room_Click(object sender, RoutedEventArgs e)
-        {
-            GroupBox1.Visibility = Visibility.Hidden;
-            GroupBox2.Visibility = Visibility.Hidden;
-            GroupBox3.Visibility = Visibility.Visible;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GroupBox1.Visibility = Visibility.Visible;
             GroupBox2.Visibility = Visibility.Hidden;
-            GroupBox3.Visibility = Visibility.Hidden;
         }
 
         private void Btn_MainLogOut_Click(object sender, RoutedEventArgs e)
