@@ -50,5 +50,28 @@ namespace PMS
             btn_Admin_Existing.IsEnabled = true;
             grp_EmpSearch.IsEnabled = false;
         }
+
+        private void Btn_AdminSearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_AdminEmpId.Text == "")
+            {
+                MessageBox.Show("Please enter Employee ID to search.");
+            }
+            else
+            {
+                long searchID = Convert.ToInt64(tb_AdminEmpId.Text);
+                AdminDAL aD = new AdminDAL();
+                EmpDetails results = aD.SearchByEmpID(searchID);
+                tb_AdminFirstName.Text = results.Emp_FirstName;
+                tb_AdminLastName.Text = results.Emp_LastName;
+                tb_AdminAddLine1.Text = results.Emp_AddLine1;
+                tb_AdminAddLine2.Text = results.Emp_AddLine2;
+                tb_AdminMobileNo.Text = Convert.ToString(results.Emp_MobileNo);
+                tb_AdminHouseNo.Text = Convert.ToString(results.Emp_HouseNo);
+                comboBox_AdminGender.SelectedIndex = results.Emp_GenderID;
+                tb_AdminPassword.Text = results.Emp_Password;
+                comboBox_AdminPrivilege.SelectedIndex = Convert.ToInt32(results.Emp_PrivelegeID);
+            }
+        }
     }
 }
