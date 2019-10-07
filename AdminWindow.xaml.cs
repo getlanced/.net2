@@ -20,6 +20,8 @@ namespace PMS
     public partial class AdminWindow : Window
     {
         MainWindow parentWindow;
+        EmpDetails glob_User = new EmpDetails(); //global container
+
         public AdminWindow(MainWindow parent)
         {
             parentWindow = parent;
@@ -41,14 +43,22 @@ namespace PMS
         {
             btn_Admin_New.IsEnabled = true;
             btn_Admin_Existing.IsEnabled = false;
+            btn_AdminAdd.IsEnabled = false;
+            btn_AdminSave.IsEnabled = true;
+            btn_AdminDelete.IsEnabled = true;
             grp_EmpSearch.IsEnabled = true;
+            Clear_EmpDetails();
         }
 
         private void Btn_Admin_New_Click(object sender, RoutedEventArgs e)
         {
             btn_Admin_New.IsEnabled = false;
             btn_Admin_Existing.IsEnabled = true;
+            btn_AdminAdd.IsEnabled = true;
+            btn_AdminSave.IsEnabled = false;
             grp_EmpSearch.IsEnabled = false;
+            btn_AdminDelete.IsEnabled = false;
+            Clear_EmpDetails();
         }
 
         private void Btn_AdminSearch_Click(object sender, RoutedEventArgs e)
@@ -71,7 +81,41 @@ namespace PMS
                 comboBox_AdminGender.SelectedIndex = results.Emp_GenderID;
                 tb_AdminPassword.Text = results.Emp_Password;
                 comboBox_AdminPrivilege.SelectedIndex = Convert.ToInt32(results.Emp_PrivelegeID);
+                glob_User = results;
             }
+        }
+        private void Clear_EmpDetails()
+        {
+            tb_AdminEmpId.Clear();
+            tb_AdminFirstName.Text = "*";
+            tb_AdminLastName.Clear();
+            tb_AdminAddLine1.Text = "*";
+            tb_AdminAddLine2.Clear();
+            tb_AdminMobileNo.Text = "*";
+            tb_AdminHouseNo.Clear();
+            tb_AdminPassword.Text = "*";
+            comboBox_AdminGender.SelectedItem = 0;
+            comboBox_AdminPrivilege.SelectedItem = 0;
+        }
+
+        private void Btn_AdminClear_Click(object sender, RoutedEventArgs e)
+        {
+            Clear_EmpDetails();
+        }
+
+        private void Btn_AdminAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_AdminDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_AdminSave_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

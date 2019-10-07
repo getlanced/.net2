@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PMS"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="526" Width="433" ResizeMode="NoResize" Closed="Window_Closed">
-    <Grid Margin="5,0,0,-9" HorizontalAlignment="Left" Width="398" Height="511" VerticalAlignment="Top">
+        Title="AdminWindow" Height="506" Width="433" ResizeMode="NoResize" Closed="Window_Closed">
+    <Grid Margin="5,0,0,0" HorizontalAlignment="Left" Width="398" Height="486" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="115*"/>
             <ColumnDefinition Width="298*"/>
         </Grid.ColumnDefinitions>
 
-        <GroupBox x:Name="grpBox_AdminWindow" Header="User Manager" Margin="10,10,0,21" HorizontalAlignment="Left" Width="388" Grid.ColumnSpan="2">
+        <GroupBox x:Name="grpBox_AdminWindow" Header="User Manager" Margin="10,10,0,16" HorizontalAlignment="Left" Width="388" Grid.ColumnSpan="2">
             <StackPanel Orientation ="Horizontal" HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" VerticalAlignment="Top" Width="360">
                 <Button x:Name="btn_Admin_New" Content="New" HorizontalAlignment="Left" Width="180" TabIndex="1" IsEnabled="False" Click="Btn_Admin_New_Click"/>
                 <Button x:Name="btn_Admin_Existing" Content="Exisiting" HorizontalAlignment="Left" Width="180" TabIndex="2" Click="Btn_Admin_Existing_Click"/>
@@ -25,9 +25,9 @@
                 <Button x:Name="btn_AdminSearch" Content="Search" HorizontalAlignment="Left" Width="95" TabIndex="4" Margin="0,0,0,4" Click="Btn_AdminSearch_Click"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox x:Name="grp_EmpDetails" Header="Employee Details" HorizontalAlignment="Left" Height="325" Margin="20,130,0,0" VerticalAlignment="Top" Width="370" Grid.ColumnSpan="2">
-            <StackPanel Orientation ="Horizontal" HorizontalAlignment="Left" Height="260" Margin="10,10,0,0" VerticalAlignment="Top" Width="350">
-                <StackPanel Orientation ="Vertical" HorizontalAlignment="Left" Width="109" Margin="0,0,0,-9" Height="269" VerticalAlignment="Top">
+        <GroupBox x:Name="grp_EmpDetails" Header="Employee Details" HorizontalAlignment="Left" Height="300" Margin="20,130,0,0" VerticalAlignment="Top" Width="370" Grid.ColumnSpan="2">
+            <StackPanel Orientation ="Horizontal" HorizontalAlignment="Left" Height="235" Margin="10,10,-2,0" VerticalAlignment="Top" Width="350">
+                <StackPanel Orientation ="Vertical" HorizontalAlignment="Left" Width="109" Height="234" VerticalAlignment="Top">
                     <Label x:Name="lbl_AdminFirstName" Content="First Name:" VerticalAlignment="Top" HorizontalAlignment="Left" Width="109"/>
                     <Label x:Name="lbl_AdminLastName" Content="Last Name:" VerticalAlignment="Top"/>
                     <Label x:Name="lbl_AdminGender" Content="Gender:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109"/>
@@ -37,35 +37,32 @@
                     <Label x:Name="lbl_lbl_AdminHouseNo" Content="House No:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Height="25"/>
                     <Label x:Name="lbl_AdminPrivilege" Content="Privilege:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Height="25"/>
                     <Label x:Name="lbl_AdminPassword" Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Height="25"/>
-                    <Label x:Name="lbl_AdminConfirmPassword" Content="Confirm Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Height="25"/>
                 </StackPanel>
-                <StackPanel Orientation ="Vertical" HorizontalAlignment="Left" Height="269" VerticalAlignment="Top" Width="240" Margin="0,0,0,-9">
+                <StackPanel Orientation ="Vertical" HorizontalAlignment="Left" Height="234" VerticalAlignment="Top" Width="240">
                     <TextBox x:Name="tb_AdminFirstName" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="234" TabIndex="5"/>
                     <TextBox x:Name="tb_AdminLastName" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TabIndex="6"/>
-                    <ComboBox x:Name="comboBox_AdminGender" HorizontalAlignment="Left" Margin="0,0,-1,0" VerticalAlignment="Top" Width="120" Height="26" TabIndex="7">
-                        <ComboBoxItem Content="Unknown"/>
+                    <ComboBox x:Name="comboBox_AdminGender" HorizontalAlignment="Left" Margin="0,0,-1,0" VerticalAlignment="Top" Width="120" Height="26" TabIndex="7" SelectedIndex="0">
                         <ComboBoxItem Content="Male"/>
                         <ComboBoxItem Content="Female"/>
                     </ComboBox>
                     <TextBox x:Name="tb_AdminAddLine1" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="234" TabIndex="8"/>
-                    <TextBox x:Name="tb_AdminAddLine2" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TabIndex="9" Text="*"/>
-                    <TextBox x:Name="tb_AdminMobileNo" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TabIndex="10"/>
-                    <TextBox x:Name="tb_AdminHouseNo" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="234" TabIndex="11"/>
-                    <ComboBox x:Name="comboBox_AdminPrivilege" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="26" TabIndex="12">
+                    <TextBox x:Name="tb_AdminAddLine2" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TabIndex="9"/>
+                    <TextBox x:Name="tb_AdminMobileNo" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TabIndex="10" Text="*"/>
+                    <TextBox x:Name="tb_AdminHouseNo" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TabIndex="11"/>
+                    <ComboBox x:Name="comboBox_AdminPrivilege" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="26" TabIndex="12" SelectedIndex="0">
                         <ComboBoxItem Content="User"/>
                         <ComboBoxItem Content="Admin"/>
                     </ComboBox>
                     <TextBox x:Name="tb_AdminPassword" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="234" TabIndex="13"/>
-                    <TextBox x:Name="tb_AdminConfirmPassword" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="234" TabIndex="14"/>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
-        <Button x:Name="btn_AdminExit" Content="Exit" HorizontalAlignment="Left" Margin="194,460,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" TabIndex="19" Click="Btn_AdminExit_Click"/>
-        <StackPanel Orientation ="Horizontal" HorizontalAlignment="Left" Height="25" Margin="30,420,0,0" VerticalAlignment="Top" Width="360" Grid.ColumnSpan="2">
-            <Button x:Name="btn_AdminAdd" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87.5" TabIndex="15"/>
-            <Button x:Name="btn_AdminDelete" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87.5" TabIndex="16" IsEnabled="False"/>
-            <Button x:Name="btn_AdminSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87.5" TabIndex="17"/>
-            <Button x:Name="btn_AdminClear" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" TabIndex="18"/>
+        <Button x:Name="btn_AdminExit" Content="Exit" HorizontalAlignment="Left" Margin="194,440,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" TabIndex="19" Click="Btn_AdminExit_Click"/>
+        <StackPanel Orientation ="Horizontal" HorizontalAlignment="Left" Height="25" Margin="30,395,0,0" VerticalAlignment="Top" Width="360" Grid.ColumnSpan="2">
+            <Button x:Name="btn_AdminAdd" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87.5" TabIndex="15" Click="Btn_AdminAdd_Click"/>
+            <Button x:Name="btn_AdminDelete" Content="Delete User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87.5" TabIndex="16" IsEnabled="False" Click="Btn_AdminDelete_Click"/>
+            <Button x:Name="btn_AdminSave" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87.5" TabIndex="17" IsEnabled="False" Click="Btn_AdminSave_Click"/>
+            <Button x:Name="btn_AdminClear" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" TabIndex="18" Click="Btn_AdminClear_Click"/>
         </StackPanel>
 
     </Grid>

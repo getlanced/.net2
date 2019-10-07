@@ -38,6 +38,10 @@ namespace PMS
         public bool Emp_PrivelegeID { get; set; }
         public string Emp_Password { get; set; }
         public DateTime? Emp_LastLogin { get; set; }  // nullable datetime data type
+
+        ~EmpDetails()
+        {
+        }
     }
     class Objects
     {
