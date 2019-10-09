@@ -53,6 +53,38 @@ namespace PMS
             return resultDet;
         }
 
+        public bool AddNewEmployee(EmpDetails newRecord)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connString))
+                using (SqlCommand command = new SqlCommand("AddNewEmployee", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("FirstName", SqlDbType.VarChar, 256).Value = newRecord.Emp_FirstName.ToDbParameter();
+                    command.Parameters.Add("LastName", SqlDbType.VarChar, 256).Value = newRecord.Emp_LastName.ToDbParameter();
+                    command.Parameters.Add("GenderID", SqlDbType.Int).Value = newRecord.Emp_GenderID.ToDbParameter();
+                    command.Parameters.Add("AddLine1", SqlDbType.VarChar, int.MaxValue).Value = newRecord.Emp_AddLine1;
+                    command.Parameters.Add("AddLine2", SqlDbType.VarChar, int.MaxValue).Value = newRecord.Emp_AddLine2.ToDbParameter();
+                    command.Parameters.Add("Mobile", SqlDbType.BigInt).Value = newRecord.Emp_MobileNo;
+                    command.Parameters.Add("HouseNo", SqlDbType.BigInt).Value = newRecord.Emp_HouseNo.ToDbParameter();
+                    command.Parameters.Add("PrivelegeID", SqlDbType.Bit).Value = newRecord.Emp_PrivelegeID;
+                    command.Parameters.Add("Password", SqlDbType.VarChar, 256).Value = newRecord.Emp_Password.ToDbParameter();
+                    command.Parameters.Add("LastLogin", SqlDbType.DateTime).Value = newRecord.Emp_LastLogin.ToDbParameter();
+                    connection.Open();
+                    if (command.ExecuteNonQuery() != 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex, "SQL Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }
+            return false;
+        }
+
         public AdminDAL()
         {
         }

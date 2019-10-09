@@ -42,6 +42,7 @@
                     <TextBox x:Name="tb_AdminFirstName" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="234" TabIndex="5"/>
                     <TextBox x:Name="tb_AdminLastName" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TabIndex="6"/>
                     <ComboBox x:Name="comboBox_AdminGender" HorizontalAlignment="Left" Margin="0,0,-1,0" VerticalAlignment="Top" Width="120" Height="26" TabIndex="7" SelectedIndex="0">
+                        <ComboBoxItem Content="Unknown"/>
                         <ComboBoxItem Content="Male"/>
                         <ComboBoxItem Content="Female"/>
                     </ComboBox>

@@ -23,6 +23,25 @@ namespace PMS
                 return reader.GetDateTime(index);
             return null;
         }
+        public static object ToDbParameter<T>(this T? value)
+        where T : struct
+        {
+            object dbValue = value;
+            if (dbValue == null)
+            {
+                dbValue = DBNull.Value;
+            }
+            return dbValue;
+        }
+        public static object ToDbParameter(this object value)
+        {
+            object dbValue = value;
+            if (dbValue == null)
+            {
+                dbValue = DBNull.Value;
+            }
+            return dbValue;
+        }
     }
 
     class EmpDetails
