@@ -38,12 +38,16 @@ namespace PMS
         {
             GroupBox1.Visibility = Visibility.Visible;
             GroupBox2.Visibility = Visibility.Hidden;
+            button_customer.IsEnabled = false;
+            button_pet.IsEnabled = true;
         }
 
         private void button_pet_Click(object sender, RoutedEventArgs e)
         {
             GroupBox1.Visibility = Visibility.Hidden;
             GroupBox2.Visibility = Visibility.Visible;
+            button_customer.IsEnabled = true;
+            button_pet.IsEnabled = false;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

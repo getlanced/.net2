@@ -8,61 +8,69 @@
         Title="Pet Day Care" Height="584" Width="600" Loaded="Window_Loaded" Closed="Window_Closed">
     <StackPanel>
         <Grid Height="30">
-            <Button x:Name="button_customer" Content="Customer Manager" HorizontalAlignment="Left" VerticalAlignment="Top" Width="298" Height="30" Click="button_customer_Click"/>
+            <Button x:Name="button_customer" Content="Customer Manager" HorizontalAlignment="Left" VerticalAlignment="Top" Width="298" Height="30" Click="button_customer_Click" IsEnabled="False"/>
             <Button x:Name="button_pet" Content="Pet Manager" HorizontalAlignment="Center" VerticalAlignment="Top" Width="298" Height="30" Click="button_pet_Click" Margin="298,0,-1.333,0"/>
         </Grid>
         <Grid x:Name="grid_employee" Background="WhiteSmoke" Height="462" Margin="0,0,-0.333,0">
             <GroupBox x:Name="GroupBox1"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="450" Margin="27,20,17.667,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0">
                 <StackPanel HorizontalAlignment="Center" Height="550" VerticalAlignment="Top" Width="550" Margin="0,0">
-                    <Grid x:Name="Grid0" Height="25" Width="520">
-                        <Button x:Name="New_CustomerManager" Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="25"/>
-                        <Button x:Name="Existing_CustomerManager" Content="Existing" HorizontalAlignment="Right" VerticalAlignment="Top" Width="260" Height="25"/>
+                    <Grid x:Name="Grid0" Height="25" Margin="15,0,10,0">
+                        <Button x:Name="New_CustomerManager" Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="25" IsEnabled="False"/>
+                        <Button x:Name="Existing_CustomerManager" Content="Existing" HorizontalAlignment="Right" VerticalAlignment="Top" Width="239" Height="25" Margin="0,0,21,0"/>
                     </Grid>
                     <Grid x:Name="Grid1" Height="60">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="108*"/>
                             <ColumnDefinition Width="167*"/>
                         </Grid.ColumnDefinitions>
-                        <Label x:Name="label0" Content="Customer ID:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,19,0,16" Height="25"/>
-                        <TextBox x:Name="txtbox_CustomerID_CustomerManager" HorizontalAlignment="Left" Height="25" Margin="104,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2"/>
-                        <Button x:Name="Clear_CustomerID" Content="Clear" HorizontalAlignment="Left" Margin="203.833,19,0,0" VerticalAlignment="Top" Width="100" Height="25" Grid.Column="1"/>
-                        <Button x:Name="Enter_CustomerID" Content="Enter" HorizontalAlignment="Left" Margin="98.833,19,0,0" VerticalAlignment="Top" Width="100" Height="25" Grid.Column="1"/>
+                        <GroupBox x:Name="grp_Box_Main_Cust_ID" Header="Customer ID" HorizontalAlignment="Left" Height="60" Margin="19,0,0,0" VerticalAlignment="Top" Width="500" BorderBrush="Black" Grid.ColumnSpan="2" Foreground="Black" IsEnabled="False">
+                            <Grid HorizontalAlignment="Left" Height="50" Margin="10,0,-2,-12" VerticalAlignment="Top" Width="480">
+                                <Label x:Name="label0" Content="Customer ID:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,13,0,12" Height="25"/>
+                                <TextBox x:Name="txtbox_CustomerID_CustomerManager" HorizontalAlignment="Left" Height="25" Margin="124,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+                                <Button x:Name="Enter_CustomerID" Content="Enter" HorizontalAlignment="Left" Margin="349,13,0,0" VerticalAlignment="Top" Width="100" Height="25"/>
+                            </Grid>
+                        </GroupBox>
                     </Grid>
-                    <Grid x:Name="Grid2" Height="300">
-                        <GroupBox x:Name="groupBoxA" Header="Credentials" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" BorderBrush="Black" Height="299" Margin="20,0,0,0" Width="500">
+                    <Grid x:Name="Grid2" Height="320">
+                        <GroupBox x:Name="groupBoxA" Header="Credentials" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" BorderBrush="Black" Height="320" Margin="20,0,0,0" Width="500">
                             <StackPanel>
                                 <Grid>
-                                    <Label x:Name="label1" Content="First Name" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="FirstName" HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
+                                    <Label x:Name="label1" Content="First Name :" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="FirstName" HorizontalAlignment="Left" Height="25" Margin="133,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327"/>
                                 </Grid>
                                 <Grid>
-                                    <Label x:Name="label2" Content="Last Name" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="LastName" HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
+                                    <Label x:Name="label2" Content="Last Name :" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="LastName" HorizontalAlignment="Left" Height="25" Margin="133,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327"/>
                                 </Grid>
                                 <Grid>
-                                    <Label x:Name="label3" Content="Street" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="Street" HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
+                                    <Label x:Name="label3" Content="Address :" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="tb_CustomerMan_Street" HorizontalAlignment="Left" Height="25" Margin="133,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327"/>
+                                </Grid>
+                                <Grid Height="35">
+                                    <Label x:Name="label5" Content="Gender :" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
+                                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="133,10,0,0" VerticalAlignment="Top" Height ="25" Width="120" SelectedIndex="0">
+                                        <ComboBoxItem Content="Male"/>
+                                        <ComboBoxItem Content="Female"/>
+                                    </ComboBox>
                                 </Grid>
                                 <Grid>
-                                    <Label x:Name="label4" Content="City" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="City" HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
+                                    <Label x:Name="label4" Content="City :" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="City" HorizontalAlignment="Left" Height="25" Margin="133,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327"/>
                                 </Grid>
-                                <Grid>
-                                    <Label x:Name="label5" Content="Zip Code" HorizontalAlignment="Left" Margin="25,10" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="ZipCode" HorizontalAlignment="Left" Height="25" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
-                                    <Label x:Name="label6" Content="Contact Number" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="103"/>
-                                    <TextBox x:Name="Phone" HorizontalAlignment="Left" Height="25" Margin="300,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+                                <Grid Height="35">
+                                    <Label x:Name="label6" Content="Contact Number :" HorizontalAlignment="Left" Margin="25,10,0,-1" VerticalAlignment="Top" Width="103"/>
+                                    <TextBox x:Name="Phone" HorizontalAlignment="Left" Height="25" Margin="133,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325"/>
                                 </Grid>
-                                <Grid Height="30">
-                                    <Button x:Name="button_Register_Credentials" Content="Register" Margin="20,5,319,0" Width="145" Height="25"/>
-                                    <Button x:Name="button_Clear_Credentials" Content="Clear" Margin="173,5,170,0" Width="145" Height="25"/>
-                                    <Button x:Name="button_Save_Credentials" Content="Save" Margin="324,5,20,0" Height="25"/>
+                                <Grid Height="50" RenderTransformOrigin="0.508,1.667" HorizontalAlignment="Right" Width="488">
+                                    <Button x:Name="button_Register_Credentials" Content="Register" Margin="28,15,321,10" Height="25"/>
+                                    <Button x:Name="button_Clear_Credentials" Content="Clear" Margin="172,15,180,10" Height="25"/>
+                                    <Button x:Name="button_Save_Credentials" Content="Save" Margin="313,15,31,10" Height="25" IsEnabled="False"/>
                                 </Grid>
                             </StackPanel>
                         </GroupBox>
                     </Grid>
-                    <Grid>
-                        <Button x:Name="button_Print" Content="Print Receipt" Margin="314,18,30,-13" Height="25"/>
+                    <Grid Height="45">
+                        <Button x:Name="button_Print" Content="Print Receipt" Margin="314,0,30,20" Height="25"/>
                     </Grid>
 
                 </StackPanel>
