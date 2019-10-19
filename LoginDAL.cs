@@ -23,7 +23,7 @@ namespace PMS
             using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SelectLoginCredentials", conn);
+                SqlCommand cmd = new SqlCommand("Employee.SelectLoginCredentials", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id", empID);
                 cmd.Parameters.AddWithValue("@Pass", pass);
@@ -43,7 +43,7 @@ namespace PMS
             using (var conn = new SqlConnection(connString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("UpdateLastLogin",conn);
+                SqlCommand cmd = new SqlCommand("Employee.UpdateLastLogin",conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Id",EmpId);
                 cmd.ExecuteNonQuery();

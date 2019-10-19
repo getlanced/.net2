@@ -21,7 +21,7 @@ namespace PMS
             try
             {
                 using (SqlConnection connection = new SqlConnection(connString))
-                using (SqlCommand command = new SqlCommand("SearchByEmpID", connection))
+                using (SqlCommand command = new SqlCommand("Employee.SearchByEmpID", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("Id", searchID);
