@@ -23,6 +23,26 @@ namespace PMS
                 return reader.GetDateTime(index);
             return null;
         }
+
+        public static object ToDbParameter<T>(this T? value)
+        where T : struct
+        {
+            object dbValue = value;
+            if (dbValue == null)
+            {
+                dbValue = DBNull.Value;
+            }
+            return dbValue;
+        }
+        public static object ToDbParameter(this object value)
+        {
+            object dbValue = value;
+            if (dbValue == null)
+            {
+                dbValue = DBNull.Value;
+            }
+            return dbValue;
+        }
     }
 
     class EmpDetails
@@ -38,6 +58,13 @@ namespace PMS
         public bool Emp_PrivelegeID { get; set; }
         public string Emp_Password { get; set; }
         public DateTime? Emp_LastLogin { get; set; }  // nullable datetime data type
+
+        public long Cust_Id { get; set; }
+        public string Cust_FirstName { get; set; }
+        public string Cust_LastName { get; set; }
+        public string Cust_Gender { get; set; }
+        public string Cust_Address { get; set; }
+        public long Cust_Contact_No { get; set; }
 
         ~EmpDetails()
         {
