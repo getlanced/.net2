@@ -11,12 +11,12 @@
             <Button x:Name="button_customer" Content="Customer Manager" HorizontalAlignment="Left" VerticalAlignment="Top" Width="298" Height="30" Click="button_customer_Click" IsEnabled="False"/>
             <Button x:Name="button_pet" Content="Pet Manager" HorizontalAlignment="Center" VerticalAlignment="Top" Width="298" Height="30" Click="button_pet_Click" Margin="298,0,-1.333,0"/>
         </Grid>
-        <Grid x:Name="grid_employee" Background="WhiteSmoke" Height="462" Margin="0,0,-0.333,0">
-            <GroupBox x:Name="GroupBox1"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="450" Margin="27,20,17.667,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0">
+        <Grid x:Name="grid_employee" Background="WhiteSmoke" Height="471" Margin="0,0,-0.333,0">
+            <GroupBox x:Name="GroupBox1"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="450" Margin="27,20,17.667,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Visibility="Hidden">
                 <StackPanel HorizontalAlignment="Center" Height="550" VerticalAlignment="Top" Width="550" Margin="0,0">
                     <Grid x:Name="Grid0" Height="25" Margin="15,0,10,0">
-                        <Button x:Name="New_CustomerManager" Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="25" IsEnabled="False"/>
-                        <Button x:Name="Existing_CustomerManager" Content="Existing" HorizontalAlignment="Right" VerticalAlignment="Top" Width="239" Height="25" Margin="0,0,21,0"/>
+                        <Button x:Name="New_CustomerManager" Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="25" IsEnabled="False" Click="New_CustomerManager_Click"/>
+                        <Button x:Name="Existing_CustomerManager" Content="Existing" HorizontalAlignment="Right" VerticalAlignment="Top" Width="239" Height="25" Margin="0,0,21,0" Click="Existing_CustomerManager_Click"/>
                     </Grid>
                     <Grid x:Name="Grid1" Height="60">
                         <Grid.ColumnDefinitions>
@@ -75,40 +75,49 @@
 
                 </StackPanel>
             </GroupBox>
-            <GroupBox x:Name="GroupBox2"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="442" Margin="27,20,18,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Visibility="Hidden">
-                <StackPanel HorizontalAlignment="Center" Height="433" VerticalAlignment="Top" Width="550" Margin="-6,0">
-                    <Grid x:Name="GridX" Height="35">
+            <GroupBox x:Name="GroupBox2"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="451" Margin="27,20,18,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0">
+                <Grid HorizontalAlignment="Center" Height="433" VerticalAlignment="Top" Width="550" Margin="-6,0">
+                    <Grid x:Name="Grid_CustomerID_PetManager" Height="45" Margin="0,2,240,386">
                         <Label x:Name="labelX" Content="Customer ID:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="18,-1,0,5"/>
-                        <TextBox x:Name="txtbox_CustomerID_PetManager" HorizontalAlignment="Left" Height="25" Margin="102,0,0,0" TextWrapping="Wrap" VerticalAlignment="center" Width="196"/>
-                        <Button x:Name="button_clear_PetManager" Content="Clear" HorizontalAlignment="Left" Margin="418,0,0,0" VerticalAlignment="Center" Width="100" Height="25"/>
-                        <Button x:Name="button_enter_PetManager" Content="Enter" HorizontalAlignment="Left" Margin="308,0,0,0" VerticalAlignment="Center" Width="100" Height="25"/>
-                        <Separator HorizontalAlignment="Left" Height="100" Margin="0,-13,0,-52" VerticalAlignment="Top" Width="540" RenderTransformOrigin="0.538,0.3"/>
+                        <TextBox x:Name="txtbox_CustomerID_PetManager" HorizontalAlignment="Left" Height="25" Margin="102,10,0,10" TextWrapping="Wrap" VerticalAlignment="center" Width="198"/>
                     </Grid>
-                    <Grid x:Name="Grid9" Height="45">
+                    <Grid x:Name="Grid_PetID_PetManager" Height="45" Margin="0,44,240,344">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="24*"/>
                             <ColumnDefinition Width="251*"/>
                         </Grid.ColumnDefinitions>
                         <Label x:Name="label7" Content="Pet ID:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="18,-1,0,5" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="txtbox_PetID_PetManager" HorizontalAlignment="Left" Height="25" Margin="19,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="231" Grid.Column="1"/>
-                        <Button x:Name="button_Register_PetManager" Content="Register" HorizontalAlignment="Left" Margin="370,0,0,0" VerticalAlignment="Center" Width="100" Height="25" Grid.Column="1"/>
-                        <Button x:Name="button_Search_PetManager" Content="Search" HorizontalAlignment="Left" Margin="260,0,0,0" VerticalAlignment="Center" Width="100" Height="25" Grid.Column="1"/>
+                        <TextBox x:Name="txtbox_PetID_PetManager" HorizontalAlignment="Left" Height="25" Margin="42.667,7,0,13" TextWrapping="Wrap" VerticalAlignment="Center" Width="230" Grid.Column="1"/>
+                    </Grid>
+                    <Grid x:Name="Buttons_PetManager" Margin="306,-3,19,343">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="57*"/>
+                            <RowDefinition Height="31*"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="button_SearchBy" Content="Search by Pet ID" HorizontalAlignment="Left" Margin="10,4.333,0,3.333" VerticalAlignment="Center" Width="205" Height="25" Grid.Row="1" Click="button_SearchBy_Click"/>
+                        <Button x:Name="button_clear_PetManager" Content="Clear" HorizontalAlignment="Left" Margin="10,32,0,0.333" VerticalAlignment="Center" Width="205" Height="25" Click="button_clear_PetManager_Click" />
+                        <Button x:Name="button_searchID_PetManager" Content="Search" HorizontalAlignment="Left" Margin="10,2,0,30.333" VerticalAlignment="Center" Width="205" Height="25" Click="button_searchID_PetManager_Click" />
                     </Grid>
                     <Grid x:Name="Grid3" Height="220">
-                        <GroupBox x:Name="groupBoxX" Header="Registered Pets" Margin="10,2,0,0" Height="210" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" BorderBrush="Black" Width="184">
+                        <GroupBox x:Name="groupBox_RegisteredPets" Header="Registered Pets" Margin="10,-16,0,0" Height="226" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" BorderBrush="Black" Width="184">
                             <Grid Margin="0,0,-1.667,-0.333">
                                 <Label x:Name="label" Content="Pets" HorizontalAlignment="Left" Margin="4,10,0,0" VerticalAlignment="Top"/>
-                                <Button x:Name="button_New_RegisteredPets" Content="New" HorizontalAlignment="Left" Margin="4,157,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
-                                <Button x:Name="button_Modify_RegisteredPets" Content="Modify" HorizontalAlignment="Left" Margin="87,157,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
-                                <ComboBox x:Name="comboBo_Pets_RegisteredPets" HorizontalAlignment="Left" Margin="41,14,0,0" VerticalAlignment="Top" Width="125"/>
+                                <Button x:Name="button_New_RegisteredPets" Content="New" HorizontalAlignment="Left" Margin="10,151,0,27" Width="77" Click="button_New_RegisteredPets_Click"/>
+                                <ComboBox x:Name="comboBo_Pets_RegisteredPets" HorizontalAlignment="Left" Margin="41,14,0,0" VerticalAlignment="Top" Width="125" SelectionChanged="comboBo_Pets_RegisteredPets_SelectionChanged">
+                                    <ComboBoxItem Content="Meow"/>
+                                </ComboBox>
+                                <Button x:Name="button_Modify_RegisteredPets" Content="Modify" HorizontalAlignment="Left" Margin="89,151,0,0" VerticalAlignment="Top" Width="77" Height="25" Click="button_Modify_RegisteredPets_Click"/>
+                                <Button x:Name="button_Back_RegisteredPets" Content="Back" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Width="156" Height="25" Click="button_Back_RegisteredPets_Click"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox Margin="194,2,22,8" Header="Pet Details" Height="210" Foreground="Black" BorderBrush="Black">
+                        <GroupBox x:Name="groupBox_PetDetails" Margin="194,-16,22,10" Header="Pet Details" Foreground="Black" BorderBrush="Black">
                             <Grid Margin="0,0,0,-0.333">
-                                <Button x:Name="button_CheckIn_PetDetails" Content="Check In" HorizontalAlignment="Left" Margin="5,157,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
-                                <Button x:Name="button_CheckOut_PetDetails" Content="Check Out" HorizontalAlignment="Left" Margin="84,157,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
-                                <Button x:Name="button_Remove_PetDetails" Content="Remove" HorizontalAlignment="Left" Margin="163,157,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
-                                <Button x:Name="button_Save_PetDetails" Content="Save" HorizontalAlignment="Left" Margin="241,157,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+
+                                <Button x:Name="button_CheckIn_PetDetails" Content="Check In" HorizontalAlignment="Left" Margin="5,153,0,0" VerticalAlignment="Top" Width="151" Height="25" Click="button_CheckIn_PetDetails_Click"/>
+                                <Button x:Name="button_CheckOut_PetDetails" Content="Check Out" HorizontalAlignment="Left" Margin="162,153,0,0" VerticalAlignment="Top" Width="152" Height="25"/>
+                                <Button x:Name="button_Remove_PetDetails" Content="Remove" HorizontalAlignment="Left" Margin="213,180,0,-2" VerticalAlignment="Top" Width="100" Height="25"/>
+                                <Button x:Name="button_Save_PetDetails" Content="Save" HorizontalAlignment="Left" Margin="109,180,0,-2" VerticalAlignment="Top" Width="100" Height="25"/>
+                                <Button x:Name="button_Register_PetDetails" Content="Register" HorizontalAlignment="Left" Margin="5,180,0,-2" VerticalAlignment="Top" Width="100" Height="25" RenderTransformOrigin="-0.013,0.76" Click="button_Register_PetDetails_Click"/>
                                 <Label x:Name="label8" Content="Pet ID" HorizontalAlignment="Left" Margin="2,8,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label9" Content="Name" HorizontalAlignment="Left" Margin="2,39,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label10" Content="Type" HorizontalAlignment="Left" Margin="2,94,0,0" VerticalAlignment="Top"/>
@@ -125,13 +134,19 @@
                                 <TextBox x:Name="textBox_LastCheckIn_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,56,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152"/>
                                 <TextBox x:Name="textBox_LastCheckOut_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
                                 <TextBox x:Name="textBox_DateRegistered_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
-                                <ComboBox x:Name="comboBox_Type_PetDetails" HorizontalAlignment="Left" Margin="51,96,0,0" VerticalAlignment="Top" Width="105" Height="23"/>
-                                <ComboBox x:Name="comboBox_Gender_PetDetails" HorizontalAlignment="Left" Margin="51,127,0,0" VerticalAlignment="Top" Width="105" Height="23"/>
+                                <ComboBox x:Name="comboBox_Type_PetDetails" HorizontalAlignment="Left" Margin="51,96,0,0" VerticalAlignment="Top" Width="105" Height="23">
+                                    <ComboBoxItem Content = "Cat"/>
+                                    <ComboBoxItem Content = "Dog"/>
+                                </ComboBox>
+                                <ComboBox x:Name="comboBox_Gender_PetDetails" HorizontalAlignment="Left" Margin="51,127,0,0" VerticalAlignment="Top" Width="105" Height="23">
+                                    <ComboBoxItem Content="Male"/>
+                                    <ComboBoxItem Content= "Female"/>
+                                </ComboBox>
                             </Grid>
                         </GroupBox>
                     </Grid>
-                    <Grid>
-                        <GroupBox x:Name="groupBoxD" Header="Room Assignment" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" BorderBrush="Black" Height="127" Margin="20,2,0,-2.333" Width="500">
+                    <Grid Margin="0,0,0,-14">
+                        <GroupBox x:Name="groupBox_RoomAssignment" Header="Room Assignment" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" BorderBrush="Black" Height="127" Margin="18,317,0,0" Width="500">
                             <Grid>
                                 <GroupBox x:Name="groupBox" Header="Room Type" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Black" BorderBrush="Black" Height="87" Width="126">
                                     <Grid Margin="0,0,0.333,-23">
@@ -141,12 +156,12 @@
                                 </GroupBox>
                                 <Label x:Name="label13" Content="Available Rooms" HorizontalAlignment="Left" Margin="155,21,0,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="comboBox_AvailableRooms_RoomAssignment" HorizontalAlignment="Left" Margin="155,51,0,0" VerticalAlignment="Top" Width="163" Height="25"/>
-                                <Button x:Name="button_Exit_RoomAssignment" Content="Exit" HorizontalAlignment="Left" Margin="403,51,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+                                <Button x:Name="button_Back_RoomAssignment" Content="Back" HorizontalAlignment="Left" Margin="403,51,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
                                 <Button x:Name="button_Assign_RoomAssignment" Content="Assign" HorizontalAlignment="Left" Margin="323,51,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
-                </StackPanel>
+                </Grid>
             </GroupBox>
         </Grid>
         <Button x:Name="btn_MainLogOut" Content="Log Out" Click="Btn_MainLogOut_Click" Height="30" Margin="0,0,-0.333,0"/>
