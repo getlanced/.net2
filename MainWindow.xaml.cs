@@ -356,5 +356,89 @@ namespace PMS
         {
             Button_Back_Save_Remove_PetManager();
         }
+
+        public void Register()
+        {
+            CustDetails collect = new CustDetails();
+
+            collect.Cust_FirstName = FirstName.Text;
+            collect.Cust_LastName = LastName.Text;
+            collect.Cust_Address = tb_CustomerMan_Address.Text;
+            if (comboBox.Text == "Male")
+            {
+                collect.Cust_Gender = "M";
+            }
+            else
+                collect.Cust_Gender = "F";
+            
+            collect.Cust_Contact_No = long.Parse(Phone.Text);
+
+            CustomerDAL.addCustomer(collect);
+        }
+        public void ClearCust()
+        {
+            txtbox_CustomerID_CustomerManager.Text = string.Empty;
+            FirstName.Text = string.Empty;
+            LastName.Text = string.Empty;
+            tb_CustomerMan_Address.Text = string.Empty;
+            Phone.Text = string.Empty;
+        }
+        private void Button_Register_Credentials_Click(object sender, RoutedEventArgs e)
+        {
+            Register();
+            ClearCust();
+        }
+
+        private void Button_Clear_Credentials_Click(object sender, RoutedEventArgs e)
+        {
+            ClearCust();
+        }
+
+        private void Button_Save_Credentials_Click(object sender, RoutedEventArgs e)
+        {
+            CustDetails collect = new CustDetails();
+
+            collect.Cust_Id = long.Parse(txtbox_CustomerID_CustomerManager.Text);
+            collect.Cust_FirstName = FirstName.Text;
+            collect.Cust_LastName = LastName.Text;
+            collect.Cust_Address = tb_CustomerMan_Address.Text;
+            if (comboBox.SelectedIndex == 0)
+                collect.Cust_Gender = "M";
+            else if (comboBox.SelectedIndex == 1)
+                collect.Cust_Gender = "F";
+            else
+                MessageBox.Show("Invalid Combo Box Index");
+
+            collect.Cust_Contact_No = long.Parse(Phone.Text);
+            CustomerDAL.UpdateCustomer(collect);
+            ClearCust();
+        }
+
+        private void Enter_CustomerID_Click(object sender, RoutedEventArgs e)
+        {
+            long id = long.Parse(txtbox_CustomerID_CustomerManager.Text);
+
+            List<CustDetails> cust = new List<CustDetails>();
+            cust = CustomerDAL.searchByCustomer(id);
+            foreach (CustDetails p in cust)
+            {
+                FirstName.Text = p.Cust_FirstName;
+                LastName.Text = p.Cust_LastName;
+                tb_CustomerMan_Address.Text = p.Cust_Address;
+
+                if (p.Cust_Gender == "M")
+                {
+                    comboBox.SelectedIndex = 0;
+                    Phone.Text = p.Cust_Contact_No.ToString();
+                }
+                else if (p.Cust_Gender == "F")
+                {
+                    comboBox.SelectedIndex = 1;
+                    Phone.Text = p.Cust_Contact_No.ToString();
+                }
+                else
+                    MessageBox.Show("Invalid Gender Detected.");
+            }
+        }
     }
 }

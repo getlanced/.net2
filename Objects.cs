@@ -43,7 +43,6 @@ namespace PMS
             return dbValue;
         }
     }
-
     class EmpDetails
     {
         public long EmployeeID { get; set; }
@@ -62,7 +61,25 @@ namespace PMS
         {
         }
     }
+
+    class CustDetails
+    {
+        public long Cust_Id { get; set; }
+        public string Cust_FirstName { get; set; }
+        public string Cust_LastName { get; set; }
+        public string Cust_Gender { get; set; }
+        public string Cust_Address { get; set; }
+        public long Cust_Contact_No { get; set; }
+        public int Cust_Pet_Capacity { get; set; }
+        public string Cust_City { get; set; }
+
+        ~CustDetails()
+        {
+        }
+    }
     class Objects
     {
     }
+    
+
 }
