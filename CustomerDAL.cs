@@ -15,7 +15,7 @@ namespace PMS
 
         private static string connString = ConfigurationManager.ConnectionStrings["EmployeeDB"]?.ConnectionString;
 
-        public static List<EmpDetails> searchByCustomer(string id)
+        public static List<EmpDetails> searchByCustomer(long id)
         {
             List<EmpDetails> search = new List<EmpDetails>();
             try
@@ -32,11 +32,13 @@ namespace PMS
                         while (reader.Read())
                         {
                             EmpDetails p = new EmpDetails();
-                            p.Cust_FirstName = reader.GetString(0);
-                            p.Cust_LastName = reader.GetString(1);
-                            p.Cust_Gender = reader.GetString(2);
-                            p.Cust_Address = reader.GetString(3);
-                            p.Cust_Contact_No = reader.GetInt32(4);
+                            p.Cust_FirstName = reader.SafeGetString(0);
+                            p.Cust_LastName = reader.SafeGetString(1);
+                            p.Cust_Gender = reader.SafeGetString(2);
+                            p.Cust_Address = reader.SafeGetString(3);
+                            p.Cust_City = reader.SafeGetString(4);
+                            p.Cust_Contact_No = reader.GetInt64(5);
+                            search.Add(p);
                         }
                     }
                     
@@ -63,7 +65,9 @@ namespace PMS
                     command.Parameters.Add("Cust_LastName", SqlDbType.VarChar, 50).Value = obj.Cust_LastName.ToDbParameter();
                     command.Parameters.Add("Cust_Gender", SqlDbType.VarChar, 1).Value = obj.Cust_Gender.ToDbParameter();
                     command.Parameters.Add("Cust_Address", SqlDbType.VarChar, 256).Value = obj.Cust_Address.ToDbParameter();
+                    command.Parameters.Add("Cust_City", SqlDbType.VarChar, 50).Value = obj.Cust_City.ToDbParameter();
                     command.Parameters.Add("Cust_Contact_No", SqlDbType.BigInt).Value = obj.Cust_Contact_No.ToDbParameter();
+                    command.Parameters.Add("Cust_Pet_Capacity", SqlDbType.Int).Value = obj.Cust_Pet_Capacity.ToDbParameter();
 
                     command.ExecuteNonQuery();
                     connection.Close();
@@ -74,6 +78,7 @@ namespace PMS
                 MessageBox.Show("ERROR: " + ex, "SQL Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
             }
 
+            MessageBox.Show("Succesful Login Customer", "SUCCESFULL", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
 
         }
 

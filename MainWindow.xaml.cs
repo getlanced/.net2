@@ -207,5 +207,58 @@ namespace PMS
             else
                 button_Modify_RegisteredPets.IsEnabled = false;
         }
+
+        private void Register_Clicked(object sender, RoutedEventArgs e)
+        {
+         
+            Register();
+            
+        }
+
+        public void Register()
+        {
+            EmpDetails collect = new EmpDetails();
+
+            collect.Cust_FirstName = FirstName.Text;
+            collect.Cust_LastName = LastName.Text;
+            collect.Cust_Address = tb_CustomerMan_Street.Text;
+            if (comboBox.Text == "Male")
+            {
+                collect.Cust_Gender = "M";
+            }
+            else
+                collect.Cust_Gender = "F";
+            collect.Cust_City = City.Text;
+            collect.Cust_Contact_No = long.Parse(Phone.Text);
+
+            CustomerDAL cust = new CustomerDAL();
+            CustomerDAL.addCustomer(collect);
+        }
+
+        private void Enter_Clicked(object sender, RoutedEventArgs e)
+        {
+            EmpDetails collect = new EmpDetails();
+
+            long id = long.Parse(txtbox_CustomerID_CustomerManager.Text);
+
+            List<EmpDetails> cust = new List<EmpDetails>();
+            cust = CustomerDAL.searchByCustomer(id);
+
+            foreach(EmpDetails p in cust)
+            {
+                FirstName.Text = p.Cust_FirstName;
+                LastName.Text = p.Cust_LastName;
+                tb_CustomerMan_Street.Text = p.Cust_Address;
+                if (p.Cust_Gender == "M")
+                {
+                    comboBox.Text = "Male";
+                }
+                else
+                    comboBox.Text = "Female";
+                City.Text = p.Cust_City;
+                Phone.Text = p.Cust_Contact_No.ToString();
+
+            }
+        }
     }
 }

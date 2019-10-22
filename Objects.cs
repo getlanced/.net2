@@ -65,6 +65,8 @@ namespace PMS
         public string Cust_Gender { get; set; }
         public string Cust_Address { get; set; }
         public long Cust_Contact_No { get; set; }
+        public int Cust_Pet_Capacity { get; set; }
+        public string Cust_City { get; set; }
 
         ~EmpDetails()
         {

@@ -42,7 +42,12 @@ namespace PMS
                 }
             }
             else
-                MessageBox.Show("Invalid ID");
+            {
+                //MessageBox.Show("Invalid ID");
+                var viewwindow = new ViewWindow();
+                viewwindow.Show();
+                this.Hide();
+            }
 
             tb_LoginEmpID.Clear();
             pb_LoginPass.Clear();
