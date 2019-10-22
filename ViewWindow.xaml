@@ -11,7 +11,7 @@
         <DataGrid HorizontalAlignment="Left" Height="260" Margin="10,67,0,0" VerticalAlignment="Top" Width="552">
  
         </DataGrid>
-        <TextBox x:Name="Search_textBox"  Margin="126,21,135,300" FontFamily="Champagne &amp; Limousiness" FontSize="18" CaretBrush="#FF992020" SelectionBrush="#FF992020" />
-        <Label Content="Search" HorizontalAlignment="Left" Margin="57,21,0,0" VerticalAlignment="Top" Width="69" FontFamily="Champagne &amp; Limousiness" FontSize="18" />
+        <TextBox x:Name="Search_textBox"  Margin="106,21,71,300" FontFamily="Champagne &amp; Limousiness" FontSize="18" CaretBrush="#FF992020" SelectionBrush="#FF992020" />
+        <Label Content="Search" HorizontalAlignment="Left" Margin="37,21,0,0" VerticalAlignment="Top" Width="69" FontFamily="Champagne &amp; Limousiness" FontSize="18" RenderTransformOrigin="0.406,0.531" />
     </Grid>
 </Window>

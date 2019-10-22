@@ -86,6 +86,7 @@ namespace PMS
             button_Register_Credentials.IsEnabled = false;
             button_Print.IsEnabled = false;
             button_Save_Credentials.IsEnabled = true;
+            ClearCust();
         }
 
         private void New_CustomerManager_Click(object sender, RoutedEventArgs e)
@@ -96,6 +97,7 @@ namespace PMS
             button_Register_Credentials.IsEnabled = true;
             button_Print.IsEnabled = true;
             button_Save_Credentials.IsEnabled = false;
+            ClearCust();
         }
 
         private void button_New_RegisteredPets_Click(object sender, RoutedEventArgs e)
@@ -212,12 +214,12 @@ namespace PMS
         {
          
             Register();
-            
+            ClearCust();
         }
 
         public void Register()
         {
-            EmpDetails collect = new EmpDetails();
+            CustDetails collect = new CustDetails();
 
             collect.Cust_FirstName = FirstName.Text;
             collect.Cust_LastName = LastName.Text;
@@ -231,7 +233,6 @@ namespace PMS
             collect.Cust_City = City.Text;
             collect.Cust_Contact_No = long.Parse(Phone.Text);
 
-            CustomerDAL cust = new CustomerDAL();
             CustomerDAL.addCustomer(collect);
         }
 
@@ -241,10 +242,10 @@ namespace PMS
 
             long id = long.Parse(txtbox_CustomerID_CustomerManager.Text);
 
-            List<EmpDetails> cust = new List<EmpDetails>();
+            List<CustDetails> cust = new List<CustDetails>();
             cust = CustomerDAL.searchByCustomer(id);
 
-            foreach(EmpDetails p in cust)
+            foreach(CustDetails p in cust)
             {
                 FirstName.Text = p.Cust_FirstName;
                 LastName.Text = p.Cust_LastName;
@@ -259,6 +260,43 @@ namespace PMS
                 Phone.Text = p.Cust_Contact_No.ToString();
 
             }
+        }
+
+        private void Save_click(object sender, RoutedEventArgs e)
+        {
+            CustDetails collect = new CustDetails();
+
+            collect.Cust_Id = long.Parse(txtbox_CustomerID_CustomerManager.Text);
+            collect.Cust_FirstName = FirstName.Text;
+            collect.Cust_LastName = LastName.Text;
+            collect.Cust_Address = tb_CustomerMan_Street.Text;
+            if (comboBox.Text == "Male")
+            {
+                collect.Cust_Gender = "M";
+            }
+            else
+                collect.Cust_Gender = "F";
+            collect.Cust_City = City.Text;
+            collect.Cust_Contact_No = long.Parse(Phone.Text);
+
+            CustomerDAL.UpdateCustomer(collect);
+            ClearCust();
+        }
+
+        private void Clear_Button(object sender, RoutedEventArgs e)
+        {
+            ClearCust();
+        }
+
+        public void ClearCust()
+        {
+            txtbox_CustomerID_CustomerManager.Text = string.Empty;
+            FirstName.Text = string.Empty;
+            LastName.Text = string.Empty;
+            tb_CustomerMan_Street.Text = string.Empty;
+            City.Text = string.Empty;
+            Phone.Text = string.Empty;
+
         }
     }
 }

@@ -59,6 +59,13 @@ namespace PMS
         public string Emp_Password { get; set; }
         public DateTime? Emp_LastLogin { get; set; }  // nullable datetime data type
 
+
+        ~EmpDetails()
+        {
+        }
+    }
+    class CustDetails
+    {
         public long Cust_Id { get; set; }
         public string Cust_FirstName { get; set; }
         public string Cust_LastName { get; set; }
@@ -68,7 +75,7 @@ namespace PMS
         public int Cust_Pet_Capacity { get; set; }
         public string Cust_City { get; set; }
 
-        ~EmpDetails()
+        ~CustDetails()
         {
         }
     }

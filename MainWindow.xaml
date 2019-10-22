@@ -67,8 +67,8 @@
                                 </Grid>
                                 <Grid Height="50" RenderTransformOrigin="0.508,1.667" HorizontalAlignment="Right" Width="488">
                                     <Button x:Name="button_Register_Credentials" Content="Register" Margin="28,15,321,10" Height="25" Click="Register_Clicked"/>
-                                    <Button x:Name="button_Clear_Credentials" Content="Clear" Margin="172,15,180,10" Height="25"/>
-                                    <Button x:Name="button_Save_Credentials" Content="Save" Margin="313,15,31,10" Height="25" IsEnabled="False"/>
+                                    <Button x:Name="button_Clear_Credentials" Content="Clear" Margin="172,15,180,10" Height="25" Click="Clear_Button"/>
+                                    <Button x:Name="button_Save_Credentials" Content="Save" Margin="313,15,31,10" Height="25" IsEnabled="False" Click="Save_click"/>
                                 </Grid>
                             </StackPanel>
                         </GroupBox>
