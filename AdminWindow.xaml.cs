@@ -47,7 +47,7 @@ namespace PMS
             btn_AdminSave.IsEnabled = true;
             btn_AdminDelete.IsEnabled = true;
             grp_EmpSearch.IsEnabled = true;
-            Clear_EmpDetails();
+            Clear_EmpDetails(0);
         }
 
         private void Btn_Admin_New_Click(object sender, RoutedEventArgs e)
@@ -58,7 +58,7 @@ namespace PMS
             btn_AdminSave.IsEnabled = false;
             grp_EmpSearch.IsEnabled = false;
             btn_AdminDelete.IsEnabled = false;
-            Clear_EmpDetails();
+            Clear_EmpDetails(0);
         }
 
         private void Btn_AdminSearch_Click(object sender, RoutedEventArgs e)
@@ -84,28 +84,69 @@ namespace PMS
                 glob_User = results;
             }
         }
-        private void Clear_EmpDetails()
+        private void Clear_EmpDetails(int mode)
         {
-            tb_AdminEmpId.Clear();
-            tb_AdminFirstName.Text = "*";
-            tb_AdminLastName.Clear();
-            tb_AdminAddLine1.Text = "*";
-            tb_AdminAddLine2.Clear();
-            tb_AdminMobileNo.Text = "*";
-            tb_AdminHouseNo.Clear();
-            tb_AdminPassword.Text = "*";
-            comboBox_AdminGender.SelectedItem = 0;
-            comboBox_AdminPrivilege.SelectedItem = 0;
+            switch (mode)
+            {
+                case 0:
+                    tb_AdminEmpId.Clear();
+                    tb_AdminFirstName.Text = "*";
+                    tb_AdminLastName.Clear();
+                    tb_AdminAddLine1.Text = "*";
+                    tb_AdminAddLine2.Clear();
+                    tb_AdminMobileNo.Text = "*";
+                    tb_AdminHouseNo.Clear();
+                    tb_AdminPassword.Text = "*";
+                    comboBox_AdminGender.SelectedItem = 0;
+                    comboBox_AdminPrivilege.SelectedItem = 0;
+                break;
+                case 1:
+                    if (tb_AdminFirstName.Text == "")
+                        tb_AdminFirstName.Text = "*";
+                    if (tb_AdminAddLine1.Text == "")
+                        tb_AdminAddLine1.Text = "*";
+                    if (tb_AdminMobileNo.Text == "")
+                        tb_AdminMobileNo.Text = "*";
+                    if (tb_AdminPassword.Text == "")
+                        tb_AdminPassword.Text = "*";
+                    break;
+            }
         }
 
         private void Btn_AdminClear_Click(object sender, RoutedEventArgs e)
         {
-            Clear_EmpDetails();
+            Clear_EmpDetails(0);
         }
 
         private void Btn_AdminAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            if (tb_AdminFirstName.Text == "" || tb_AdminFirstName.Text == "*" ||
+                tb_AdminAddLine1.Text == "" || tb_AdminAddLine1.Text == "*" ||
+                tb_AdminMobileNo.Text == "" || tb_AdminMobileNo.Text == "*" ||
+                tb_AdminPassword.Text == "" || tb_AdminPassword.Text == "*")
+            {
+                MessageBox.Show("Please fill up necessary fields. (marked with *)");
+                Clear_EmpDetails(1);
+            }
+            else
+            {
+                EmpDetails newRecord = new EmpDetails();
+                newRecord.Emp_FirstName = tb_AdminFirstName.Text;
+                newRecord.Emp_LastName = tb_AdminLastName.Text;
+                newRecord.Emp_GenderID = comboBox_AdminGender.SelectedIndex;
+                newRecord.Emp_AddLine1 = tb_AdminAddLine1.Text;
+                newRecord.Emp_AddLine2 = tb_AdminAddLine2.Text;
+                newRecord.Emp_HouseNo = Convert.ToInt64(tb_AdminHouseNo.Text);
+                newRecord.Emp_MobileNo = Convert.ToInt64(tb_AdminMobileNo.Text);
+                newRecord.Emp_Password = tb_AdminPassword.Text;
+                newRecord.Emp_PrivelegeID = Convert.ToBoolean(comboBox_AdminPrivilege.SelectedIndex);
+                newRecord.Emp_LastLogin = null;
+                AdminDAL aD = new AdminDAL();
+                if (aD.AddNewEmployee(newRecord))
+                    MessageBox.Show($"User {newRecord.Emp_FirstName} has been successfully added.");
+                else
+                    MessageBox.Show($"User {newRecord.Emp_FirstName} was not added.");
+            }
         }
 
         private void Btn_AdminDelete_Click(object sender, RoutedEventArgs e)
