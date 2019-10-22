@@ -103,7 +103,7 @@
                             <Grid Margin="0,0,-1.667,-0.333">
                                 <Label x:Name="label" Content="Pets" HorizontalAlignment="Left" Margin="4,10,0,0" VerticalAlignment="Top"/>
                                 <Button x:Name="button_New_RegisteredPets" Content="New" HorizontalAlignment="Left" Margin="10,151,0,27" Width="77" Click="button_New_RegisteredPets_Click"/>
-                                <ComboBox x:Name="comboBo_Pets_RegisteredPets" HorizontalAlignment="Left" Margin="41,14,0,0" VerticalAlignment="Top" Width="125" SelectionChanged="comboBo_Pets_RegisteredPets_SelectionChanged">
+                                <ComboBox x:Name="comboBo_Pets_RegisteredPets" HorizontalAlignment="Left" Margin="41,14,0,0" VerticalAlignment="Top" Width="125">
                                     <ComboBoxItem Content="Meow"/>
                                 </ComboBox>
                                 <Button x:Name="button_Modify_RegisteredPets" Content="Modify" HorizontalAlignment="Left" Margin="89,151,0,0" VerticalAlignment="Top" Width="77" Height="25" Click="button_Modify_RegisteredPets_Click"/>
@@ -114,26 +114,26 @@
                             <Grid Margin="0,0,0,-0.333">
 
                                 <Button x:Name="button_CheckIn_PetDetails" Content="Check In" HorizontalAlignment="Left" Margin="5,153,0,0" VerticalAlignment="Top" Width="151" Height="25" Click="button_CheckIn_PetDetails_Click"/>
-                                <Button x:Name="button_CheckOut_PetDetails" Content="Check Out" HorizontalAlignment="Left" Margin="162,153,0,0" VerticalAlignment="Top" Width="152" Height="25"/>
-                                <Button x:Name="button_Remove_PetDetails" Content="Remove" HorizontalAlignment="Left" Margin="213,180,0,-2" VerticalAlignment="Top" Width="100" Height="25"/>
-                                <Button x:Name="button_Save_PetDetails" Content="Save" HorizontalAlignment="Left" Margin="109,180,0,-2" VerticalAlignment="Top" Width="100" Height="25"/>
+                                <Button x:Name="button_CheckOut_PetDetails" Content="Check Out" HorizontalAlignment="Left" Margin="162,153,0,0" VerticalAlignment="Top" Width="152" Height="25" Click="Button_CheckOut_PetDetails_Click"/>
+                                <Button x:Name="button_Remove_PetDetails" Content="Remove" HorizontalAlignment="Left" Margin="213,180,0,-2" VerticalAlignment="Top" Width="100" Height="25" Click="Button_Remove_PetDetails_Click"/>
+                                <Button x:Name="button_Save_PetDetails" Content="Save" HorizontalAlignment="Left" Margin="109,180,0,-2" VerticalAlignment="Top" Width="100" Height="25" Click="Button_Save_PetDetails_Click"/>
                                 <Button x:Name="button_Register_PetDetails" Content="Register" HorizontalAlignment="Left" Margin="5,180,0,-2" VerticalAlignment="Top" Width="100" Height="25" RenderTransformOrigin="-0.013,0.76" Click="button_Register_PetDetails_Click"/>
                                 <Label x:Name="label8" Content="Pet ID" HorizontalAlignment="Left" Margin="2,8,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label9" Content="Name" HorizontalAlignment="Left" Margin="2,39,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label10" Content="Type" HorizontalAlignment="Left" Margin="2,94,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label11" Content="Breed" HorizontalAlignment="Left" Margin="2,67,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label12" Content="Gender" HorizontalAlignment="Left" Margin="2,124,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="textBox_PetID_PetDetails" HorizontalAlignment="Left" Height="23" Margin="51,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+                                <TextBox x:Name="textBox_PetID_PetDetails" HorizontalAlignment="Left" Height="23" Margin="51,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" IsEnabled="False"/>
                                 <TextBox x:Name="textBox_Name_PetDetails" HorizontalAlignment="Left" Height="23" Margin="51,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
                                 <TextBox x:Name="textBox_Breed_PetDetails" HorizontalAlignment="Left" Height="23" Margin="51,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
                                 <Label x:Name="label_LastCheckIn" Content="Last Check In" HorizontalAlignment="Left" Margin="161,34,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label_LastCheckOut" Content="Last Check Out" HorizontalAlignment="Left" Margin="161,70,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label_DateRegistered" Content="Date Registered" HorizontalAlignment="Left" Margin="161,108,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label16" Content="Room Assigned" HorizontalAlignment="Left" Margin="161,-7,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="textBox_RoomAssigned_PetDetails" HorizontalAlignment="Left" Height="23" Margin="162,17,0,0" TextWrapping="Wrap" FontSize="28" VerticalAlignment="Top" Width="152"/>
-                                <TextBox x:Name="textBox_LastCheckIn_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,56,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152"/>
-                                <TextBox x:Name="textBox_LastCheckOut_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
-                                <TextBox x:Name="textBox_DateRegistered_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152"/>
+                                <TextBox x:Name="textBox_RoomAssigned_PetDetails" HorizontalAlignment="Left" Height="23" Margin="162,17,0,0" TextWrapping="Wrap" FontSize="28" VerticalAlignment="Top" Width="152" IsReadOnly="True" IsEnabled="False"/>
+                                <TextBox x:Name="textBox_LastCheckIn_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,56,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="152" IsReadOnly="True" IsEnabled="False"/>
+                                <TextBox x:Name="textBox_LastCheckOut_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" IsReadOnly="True" IsEnabled="False"/>
+                                <TextBox x:Name="textBox_DateRegistered_PetDetails" HorizontalAlignment="Left" Height="20" Margin="162,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" IsReadOnly="True" IsEnabled="False"/>
                                 <ComboBox x:Name="comboBox_Type_PetDetails" HorizontalAlignment="Left" Margin="51,96,0,0" VerticalAlignment="Top" Width="105" Height="23">
                                     <ComboBoxItem Content = "Cat"/>
                                     <ComboBoxItem Content = "Dog"/>
@@ -156,8 +156,8 @@
                                 </GroupBox>
                                 <Label x:Name="label13" Content="Available Rooms" HorizontalAlignment="Left" Margin="155,21,0,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="comboBox_AvailableRooms_RoomAssignment" HorizontalAlignment="Left" Margin="155,51,0,0" VerticalAlignment="Top" Width="163" Height="25"/>
-                                <Button x:Name="button_Back_RoomAssignment" Content="Back" HorizontalAlignment="Left" Margin="403,51,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
-                                <Button x:Name="button_Assign_RoomAssignment" Content="Assign" HorizontalAlignment="Left" Margin="323,51,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+                                <Button x:Name="button_Back_RoomAssignment" Content="Back" HorizontalAlignment="Left" Margin="403,51,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="Button_Back_RoomAssignment_Click"/>
+                                <Button x:Name="button_Assign_RoomAssignment" Content="Assign" HorizontalAlignment="Left" Margin="323,51,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="Button_Assign_RoomAssignment_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
