@@ -12,7 +12,7 @@
             <Button x:Name="button_pet" Content="Pet Manager" HorizontalAlignment="Center" VerticalAlignment="Top" Width="298" Height="30" Click="button_pet_Click" Margin="298,0,-1.333,0"/>
         </Grid>
         <Grid x:Name="grid_employee" Background="WhiteSmoke" Height="471" Margin="0,0,-0.333,0">
-            <GroupBox x:Name="GroupBox1"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="450" Margin="27,20,17.667,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0">
+            <GroupBox x:Name="GroupBox1"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="450" Margin="27,20,17.667,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Visibility="Hidden">
                 <StackPanel HorizontalAlignment="Center" Height="550" VerticalAlignment="Top" Width="550" Margin="0,0">
                     <Grid x:Name="Grid0" Height="25" Margin="15,0,10,0">
                         <Button x:Name="New_CustomerManager" Content="New" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="25" IsEnabled="False" Click="New_CustomerManager_Click"/>
@@ -72,7 +72,7 @@
 
                 </StackPanel>
             </GroupBox>
-            <GroupBox x:Name="GroupBox2"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="451" Margin="27,20,18,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0" Visibility="Hidden">
+            <GroupBox x:Name="GroupBox2"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="451" Margin="27,20,18,0" Width="550" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0">
                 <Grid HorizontalAlignment="Center" Height="433" VerticalAlignment="Top" Width="550" Margin="-6,0">
                     <Grid x:Name="Grid_CustomerID_PetManager" Height="45" Margin="0,2,240,386">
                         <Label x:Name="labelX" Content="Customer ID:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="18,-1,0,5"/>

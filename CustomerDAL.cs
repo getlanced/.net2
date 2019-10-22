@@ -35,8 +35,7 @@ namespace PMS
                             p.Cust_LastName = reader.SafeGetString(1);
                             p.Cust_Gender = reader.SafeGetString(2);
                             p.Cust_Address = reader.SafeGetString(3);
-                            p.Cust_City = reader.SafeGetString(4);
-                            p.Cust_Contact_No = reader.GetInt64(5);
+                            p.Cust_Contact_No = reader.GetInt64(4);
                             search.Add(p);
                         }
                     }                    

@@ -225,6 +225,7 @@ namespace PMS
                 comboBo_Pets_RegisteredPets.SelectedItem = null;
                 button_New_RegisteredPets.IsEnabled = true;
                 button_Modify_RegisteredPets.IsEnabled = false;
+
                 
             }
             else if (button_SearchBy.Content.ToString() == "Search by Customer ID")
@@ -397,7 +398,7 @@ namespace PMS
         private void Button_Save_Credentials_Click(object sender, RoutedEventArgs e)
         {
             CustDetails collect = new CustDetails();
-
+            //prevent errors
             collect.Cust_Id = long.Parse(txtbox_CustomerID_CustomerManager.Text);
             collect.Cust_FirstName = FirstName.Text;
             collect.Cust_LastName = LastName.Text;

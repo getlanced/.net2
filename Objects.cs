@@ -75,11 +75,24 @@ namespace PMS
 
         ~CustDetails()
         {
+           
         }
+    }
+
+    class PetDetails
+    {
+        public long Pet_ID { get; set; }
+        public string Pet_Name { get; set; }
+        public string Pet_Breed { get; set; }
+        public string Pet_Type { get; set; }
+        public char Pet_Gender { get; set; }
+        public long Room_ID { get; set; }
+        public DateTime Date_Registered { get; }
+        public long Current_OwnerID { get; set; }
+        public long Previous_OwnerID { get; set; }
     }
     class Objects
     {
     }
-    
 
 }
