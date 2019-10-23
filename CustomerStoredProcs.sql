@@ -38,7 +38,7 @@ GO
 ------------------------------ MODIFY --------------------------------
 ----------------------------------------------------------------------
 
-CREATE PROCEDURE [Customer].[Modify]
+ALTER PROCEDURE [Customer].[Modify]
 (
 @CustID bigint,
 @PetName varchar(50)
@@ -114,21 +114,15 @@ GO
 ------------------- UPDATE ROOM ENTRY CHECKIN ------------------------
 ----------------------------------------------------------------------
 
-Create PROCEDURE [Customer].[RoomEntryUpdate_CheckIn]
-(
-@RoomID bigint
-)
+CREATE PROCEDURE [Customer].[RoomEntryUpdate_CheckIn]
+@RoomID bigint,
+@PetID bigint
 AS
 BEGIN
 Update Customer.RoomEntry
 Set Room_LastCheckedIn = getdate()
-select *
-from Customer.Pet
-inner join Customer.Customer on Customer.Cust_ID = Pet.Pet_CurrentCustID 
-inner join Customer.RoomEntry on Pet.Pet_RoomID = RoomEntry.Room_ID
-Where Room_ID = @RoomID
+where Room_ID = @RoomID and Room_PetID = @PetID
 END
-GO
 
 ----------------------------------------------------------------------
 ------------------- UPDATE ROOM ENTRY CHECKOUT -----------------------
