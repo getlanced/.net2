@@ -136,14 +136,20 @@ namespace PMS
                 newRecord.Emp_GenderID = comboBox_AdminGender.SelectedIndex;
                 newRecord.Emp_AddLine1 = tb_AdminAddLine1.Text;
                 newRecord.Emp_AddLine2 = tb_AdminAddLine2.Text;
-                newRecord.Emp_HouseNo = Convert.ToInt64(tb_AdminHouseNo.Text);
+                if (tb_AdminHouseNo.Text != "")
+                    newRecord.Emp_HouseNo = Convert.ToInt64(tb_AdminHouseNo.Text);
+                else
+                    newRecord.Emp_HouseNo = 0;
                 newRecord.Emp_MobileNo = Convert.ToInt64(tb_AdminMobileNo.Text);
                 newRecord.Emp_Password = tb_AdminPassword.Text;
                 newRecord.Emp_PrivelegeID = Convert.ToBoolean(comboBox_AdminPrivilege.SelectedIndex);
                 newRecord.Emp_LastLogin = null;
                 AdminDAL aD = new AdminDAL();
                 if (aD.AddNewEmployee(newRecord))
+                {
                     MessageBox.Show($"User {newRecord.Emp_FirstName} has been successfully added.");
+                    glob_User = newRecord;
+                }
                 else
                     MessageBox.Show($"User {newRecord.Emp_FirstName} was not added.");
             }
@@ -151,12 +157,30 @@ namespace PMS
 
         private void Btn_AdminDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminDAL aD = new AdminDAL();
+            if (aD.DeleteEmployee(glob_User.EmployeeID))
+                MessageBox.Show($"User {glob_User.Emp_FirstName} has been successfully deleted.");
+            else
+                MessageBox.Show($"User {glob_User.Emp_FirstName} was not deleted.");
         }
 
         private void Btn_AdminSave_Click(object sender, RoutedEventArgs e)
         {
-
+            glob_User.Emp_FirstName = tb_AdminFirstName.Text;
+            glob_User.Emp_LastName = tb_AdminLastName.Text;
+            glob_User.Emp_GenderID = comboBox_AdminGender.SelectedIndex;
+            glob_User.Emp_AddLine1 = tb_AdminAddLine1.Text;
+            glob_User.Emp_AddLine2 = tb_AdminAddLine2.Text;
+            glob_User.Emp_HouseNo = Convert.ToInt64(tb_AdminHouseNo.Text);
+            glob_User.Emp_MobileNo = Convert.ToInt64(tb_AdminMobileNo.Text);
+            glob_User.Emp_Password = tb_AdminPassword.Text;
+            glob_User.Emp_PrivelegeID = Convert.ToBoolean(comboBox_AdminPrivilege.SelectedIndex);
+            glob_User.Emp_LastLogin = DateTime.Now;
+            AdminDAL aD = new AdminDAL();
+            if (aD.SaveChangesToEmployee(glob_User))
+                MessageBox.Show($"Changes have been saved.");
+            else
+                MessageBox.Show($"No changes were saved.");
         }
     }
 }

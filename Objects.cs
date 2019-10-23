@@ -23,6 +23,7 @@ namespace PMS
                 return reader.GetDateTime(index);
             return null;
         }
+
         public static object ToDbParameter<T>(this T? value)
         where T : struct
         {

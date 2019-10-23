@@ -58,7 +58,7 @@ namespace PMS
             try
             {
                 using (SqlConnection connection = new SqlConnection(connString))
-                using (SqlCommand command = new SqlCommand("AddNewEmployee", connection))
+                using (SqlCommand command = new SqlCommand("Employee.AddNewEmployee", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("FirstName", SqlDbType.VarChar, 256).Value = newRecord.Emp_FirstName.ToDbParameter();
@@ -85,6 +85,61 @@ namespace PMS
             return false;
         }
 
+        public bool DeleteEmployee(long id)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connString))
+                using (SqlCommand command = new SqlCommand("Employee.DeleteEmployee", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("Id", SqlDbType.BigInt).Value = id;
+                    connection.Open();
+                    if (command.ExecuteNonQuery() != 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex, "SQL Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }
+            return false;
+        }
+
+        public bool SaveChangesToEmployee(EmpDetails record)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connString))
+                using (SqlCommand command = new SqlCommand("Employee.SaveChangesToEmployee", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("Id", SqlDbType.BigInt).Value = record.EmployeeID;
+                    command.Parameters.Add("FirstName", SqlDbType.VarChar, 256).Value = record.Emp_FirstName.ToDbParameter();
+                    command.Parameters.Add("LastName", SqlDbType.VarChar, 256).Value = record.Emp_LastName.ToDbParameter();
+                    command.Parameters.Add("GenderID", SqlDbType.Int).Value = record.Emp_GenderID.ToDbParameter();
+                    command.Parameters.Add("AddLine1", SqlDbType.VarChar, int.MaxValue).Value = record.Emp_AddLine1;
+                    command.Parameters.Add("AddLine2", SqlDbType.VarChar, int.MaxValue).Value = record.Emp_AddLine2.ToDbParameter();
+                    command.Parameters.Add("Mobile", SqlDbType.BigInt).Value = record.Emp_MobileNo;
+                    command.Parameters.Add("HouseNo", SqlDbType.BigInt).Value = record.Emp_HouseNo.ToDbParameter();
+                    command.Parameters.Add("PrivelegeID", SqlDbType.Bit).Value = record.Emp_PrivelegeID;
+                    command.Parameters.Add("Password", SqlDbType.VarChar, 256).Value = record.Emp_Password.ToDbParameter();
+                    command.Parameters.Add("LastLogin", SqlDbType.DateTime).Value = record.Emp_LastLogin.ToDbParameter();
+                    connection.Open();
+                    if (command.ExecuteNonQuery() != 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex, "SQL Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }
+            return false;
+        }
         public AdminDAL()
         {
         }
