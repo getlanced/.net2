@@ -43,7 +43,7 @@ namespace PMS
             return dbValue;
         }
     }
-    class EmpDetails
+    public class EmpDetails
     {
         public long EmployeeID { get; set; }
         public string Emp_FirstName { get; set; }
@@ -62,7 +62,7 @@ namespace PMS
         }
     }
 
-    class CustDetails
+    public class CustDetails
     {
         public long Cust_Id { get; set; }
         public string Cust_FirstName { get; set; }
@@ -79,7 +79,7 @@ namespace PMS
         }
     }
 
-    class PetDetails
+    public class PetDetails
     {
         public long Pet_ID { get; set; }
         public string Pet_Name { get; set; }
