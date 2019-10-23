@@ -62,7 +62,6 @@ namespace PMS
         {
         }
     }
-
     public class CustDetails
     {
         public long Cust_Id { get; set; }

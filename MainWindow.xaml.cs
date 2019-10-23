@@ -22,6 +22,8 @@ namespace PMS
     {
         LoginWindow parentWindow;
         LoginDAL usingDal = new LoginDAL();
+        PetDAL pD = new PetDAL();
+        long custId;
         public MainWindow(LoginWindow parent, LoginDAL x)
         {
             parentWindow = parent;
@@ -127,10 +129,25 @@ namespace PMS
             button_Remove_PetDetails.IsEnabled = false;
         }
 
+        public void LoadPetDetails(List<object> details)
+        {
+            textBox_PetID_PetDetails.Text = Convert.ToString(details[0]);
+            textBox_Name_PetDetails.Text = Convert.ToString(details[1]);
+            textBox_Breed_PetDetails.Text = Convert.ToString(details[2]);
+            comboBox_Type_PetDetails.SelectedIndex = Convert.ToString(details[3]) == "Cat" ? 0 : 1;
+            comboBox_Gender_PetDetails.SelectedIndex = Convert.ToString(details[4]) == "Male" ? 0 : 1;
+            textBox_DateRegistered_PetDetails.Text = Convert.ToString(details[5]);
+            textBox_RoomAssigned_PetDetails.Text = Convert.ToString(details[6]);
+            textBox_LastCheckIn_PetDetails.Text = Convert.ToString(details[7]);
+            textBox_LastCheckOut_PetDetails.Text = Convert.ToString(details[8]);
+
+        }
+
         private void button_Modify_RegisteredPets_Click(object sender, RoutedEventArgs e)
         {
             ClearPetDetails();
-            //LoadPetDetails();
+            List<object> details = pD.Modify(custId, comboBo_Pets_RegisteredPets.Text);
+            LoadPetDetails(details);
             button_New_RegisteredPets.IsEnabled = false;
             comboBo_Pets_RegisteredPets.IsEnabled = false;
             groupBox_PetDetails.IsEnabled = true;
@@ -209,8 +226,22 @@ namespace PMS
             textBox_LastCheckOut_PetDetails.Text = "";
             textBox_DateRegistered_PetDetails.Text = "";
         }
+
+        public void ClearRegPets()
+        {
+            comboBo_Pets_RegisteredPets.Items[0] = "";
+            comboBo_Pets_RegisteredPets.Items[1] = "";
+            comboBo_Pets_RegisteredPets.Items[2] = "";
+        }
+
+        public void SetRegPets(List<string> pets)
+        {
+            foreach (string pet in pets)
+                comboBo_Pets_RegisteredPets.Items[pets.IndexOf(pet)] = pet;
+        }
         private void button_searchID_PetManager_Click(object sender, RoutedEventArgs e)
         {
+            custId = Convert.ToInt64(txtbox_CustomerID_PetManager.Text);
             Return2PreviousState();
             button_searchID_PetManager.IsEnabled = false;
             button_clear_PetManager.IsEnabled = true;
@@ -226,7 +257,9 @@ namespace PMS
                 button_New_RegisteredPets.IsEnabled = true;
                 button_Modify_RegisteredPets.IsEnabled = false;
 
-                
+                List<string> pets = pD.SearchByCustomerID(custId);
+                ClearRegPets();
+                SetRegPets(pets);
             }
             else if (button_SearchBy.Content.ToString() == "Search by Customer ID")
             {
