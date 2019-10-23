@@ -90,21 +90,21 @@ namespace PMS
 
         private void Existing_CustomerManager_Click(object sender, RoutedEventArgs e)
         {
+            groupBoxA.IsEnabled = false;
             Existing_CustomerManager.IsEnabled = false;
             New_CustomerManager.IsEnabled = true;
             grp_Box_Main_Cust_ID.IsEnabled = true;
             button_Register_Credentials.IsEnabled = false;
-            button_Print.IsEnabled = false;
             button_Save_Credentials.IsEnabled = true;
         }
 
         private void New_CustomerManager_Click(object sender, RoutedEventArgs e)
         {
+            groupBoxA.IsEnabled = true;
             New_CustomerManager.IsEnabled = false;
             Existing_CustomerManager.IsEnabled = true;
             grp_Box_Main_Cust_ID.IsEnabled = false;
             button_Register_Credentials.IsEnabled = true;
-            button_Print.IsEnabled = true;
             button_Save_Credentials.IsEnabled = false;
         }
 
@@ -378,6 +378,7 @@ namespace PMS
         }
         public void ClearCust()
         {
+            comboBox.SelectedItem = null;
             txtbox_CustomerID_CustomerManager.Text = string.Empty;
             FirstName.Text = string.Empty;
             LastName.Text = string.Empty;
@@ -392,6 +393,10 @@ namespace PMS
 
         private void Button_Clear_Credentials_Click(object sender, RoutedEventArgs e)
         {
+            if (grp_Box_Main_Cust_ID.IsEnabled == false)
+                groupBoxA.IsEnabled = true;
+            else
+                groupBoxA.IsEnabled = false;
             ClearCust();
         }
 
@@ -417,6 +422,8 @@ namespace PMS
 
         private void Enter_CustomerID_Click(object sender, RoutedEventArgs e)
         {
+            groupBoxA.IsEnabled = true;
+
             long id = long.Parse(txtbox_CustomerID_CustomerManager.Text);
 
             List<CustDetails> cust = new List<CustDetails>();
