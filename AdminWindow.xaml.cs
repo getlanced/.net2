@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+
 
 namespace PMS
 {
@@ -181,6 +185,50 @@ namespace PMS
                 MessageBox.Show($"Changes have been saved.");
             else
                 MessageBox.Show($"No changes were saved.");
+        }
+
+        private void button_CustomerRecords_Admin_Click(object sender, RoutedEventArgs e)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["EmployeeDB"]?.ConnectionString;
+            SqlConnection con = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand("select * from Customer.Customer", con);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGrid_ViewRecords.ItemsSource = dt.DefaultView;
+            cmd.Dispose();
+            con.Close();
+
+        }
+
+        private void button_UserRecords_Admin_Click(object sender, RoutedEventArgs e)
+        {
+
+            string connString = ConfigurationManager.ConnectionStrings["EmployeeDB"]?.ConnectionString;
+            SqlConnection con = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand("select * from Employee.Employee", con);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGrid_ViewRecords.ItemsSource = dt.DefaultView;
+            cmd.Dispose();
+            con.Close();
+        }
+
+        private void Button_PetRecords_Admin_Click(object sender, RoutedEventArgs e)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["EmployeeDB"]?.ConnectionString;
+            SqlConnection con = new SqlConnection(connString);
+            SqlCommand cmd = new SqlCommand("select * from Customer.Pet", con);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGrid_ViewRecords.ItemsSource = dt.DefaultView;
+            cmd.Dispose();
+            con.Close();
         }
     }
 }
