@@ -23,7 +23,22 @@ namespace PMS
                 using (SqlCommand command = new SqlCommand("Customer.SearchByCustomerID", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("CustID", SqlDbType.BigInt).Value = id;
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                            results.Add(reader.GetString(0));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex, "SQL Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+            }
 
+            return results;
+        }
 
         public List<object> Modify(long custID, string petName)
         {
