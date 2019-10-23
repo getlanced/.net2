@@ -24,7 +24,7 @@ namespace PMS
                 {
                     connection.Open();
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@",);
+                    //command.Parameters.AddWithValue("@",);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

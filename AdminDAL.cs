@@ -10,7 +10,7 @@ using System.Data;
 
 namespace PMS
 {
-    
+
     class AdminDAL
     {
         private string connString = ConfigurationManager.ConnectionStrings["EmployeeDB"]?.ConnectionString;
@@ -140,6 +140,7 @@ namespace PMS
             }
             return false;
         }
+
         public AdminDAL()
         {
         }
